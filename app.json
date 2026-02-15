@@ -69,8 +69,9 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "c7d22352-2453-401f-a8e0-c159d705f171"
+        "projectId": "4207a65d-81cd-43b0-853a-b8c0a5a3e27e"
       }
-    }
+    },
+    "owner": "chamindu340"
   }
 }
