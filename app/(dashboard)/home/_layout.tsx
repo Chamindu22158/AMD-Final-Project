@@ -4,7 +4,7 @@ import { Platform, StyleSheet, View, StatusBar } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useTheme } from "@react-navigation/native";
 
-// Create the Top Tabs Navigator
+// Create the  Top Tabs Navigator
 const { Navigator } = createMaterialTopTabNavigator();
 export const TopTabs = withLayoutContext(Navigator);
 
