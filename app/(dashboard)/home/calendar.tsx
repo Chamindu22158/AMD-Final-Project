@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  View, 
-  Text, 
-  StyleSheet, 
-  TouchableOpacity, 
-  Alert, 
-  Modal, 
-  TextInput, 
-  Platform 
+import * as Device from 'expo-device';
+import * as Notifications from 'expo-notifications';
+import React, { useEffect, useState } from 'react';
+import {
+  Alert,
+  Modal,
+  Platform,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
 } from 'react-native';
 import { Calendar, DateData } from 'react-native-calendars';
-import { MaterialIcons } from '@expo/vector-icons';
-import * as Notifications from 'expo-notifications';
-import * as Device from 'expo-device';
 
 // Configure notification handler
 Notifications.setNotificationHandler({
@@ -135,7 +134,7 @@ const CalendarScreen: React.FC = () => {
       // Calculate the delay in milliseconds from now
       const delayMs = notificationDate.getTime() - now.getTime();
       
-      // Use trigger with timestamp for future scheduling
+      // Use trigger with date for future scheduling
       const notificationId = await Notifications.scheduleNotificationAsync({
         content: {
           title: "Financial Reminder 💰",
@@ -146,8 +145,8 @@ const CalendarScreen: React.FC = () => {
           },
         },
         trigger: {
-          type: Notifications.SchedulableTriggerInputTypes.TIME_STAMP,
-          timestamp: notificationDate.getTime(),
+          type: Notifications.SchedulableTriggerInputTypes.DATE,
+          date: notificationDate,
         },
       });
       
@@ -190,8 +189,8 @@ const CalendarScreen: React.FC = () => {
           body: "This notification was scheduled 5 seconds ago",
         },
         trigger: {
-          type: Notifications.SchedulableTriggerInputTypes.TIMESTAMP,
-          timestamp: Date.now() + 5000, // 5 seconds from now
+          type: Notifications.SchedulableTriggerInputTypes.TIME_INTERVAL,
+          seconds: 5, // 5 seconds from now
         },
       });
       Alert.alert('Success', 'Delayed notification scheduled! It will appear in 5 seconds.');

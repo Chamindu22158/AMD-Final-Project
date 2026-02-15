@@ -1,8 +1,8 @@
-import { withLayoutContext } from "expo-router";
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import { Platform, StyleSheet, View, StatusBar } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { useTheme } from "@react-navigation/native";
+import { withLayoutContext } from "expo-router";
+import { Platform, StatusBar, StyleSheet, View } from "react-native";
 
 // Create the  Top Tabs Navigator
 const { Navigator } = createMaterialTopTabNavigator();
@@ -57,7 +57,7 @@ export default function HomeLayout() {
           name="daily"
           options={{
             title: "Daily",
-            tabBarIcon: ({ color, focused }) => (
+            tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
               <MaterialIcons
                 name="today"
                 size={20}
@@ -71,7 +71,7 @@ export default function HomeLayout() {
           name="monthly"
           options={{
             title: "Monthly",
-            tabBarIcon: ({ color, focused }) => (
+            tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
               <MaterialIcons
                 name="calendar-month"
                 size={20}
@@ -85,7 +85,7 @@ export default function HomeLayout() {
           name="calendar"
           options={{
             title: "Calendar",
-            tabBarIcon: ({ color, focused }) => (
+            tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
               <MaterialIcons
                 name="event"
                 size={20}
@@ -99,7 +99,7 @@ export default function HomeLayout() {
           name="calculator"
           options={{
             title: "Calculator",
-            tabBarIcon: ({ color, focused }) => (
+            tabBarIcon: ({ color, focused }: { color: string; focused: boolean }) => (
               <MaterialIcons
                 name="calculate"
                 size={20}
